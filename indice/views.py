@@ -1,11 +1,12 @@
 
 from plistlib import load
+from django.shortcuts import render
 from django.template import Context,Template, loader
 from django.http import HttpResponse
 import random
 
 def inicio(request):
-    return HttpResponse('Hola soy la nueva pagina')
+    return render(request, 'indice/index.html', {})
 
 
 def otra_vista(request):
@@ -44,8 +45,10 @@ def mi_plantilla(request):
     # plantilla_preparada = template.render(diccionario_de_datos)
     
     # version nueva con loader
-    template = loader.get_template('mi_plantilla.html')
-    plantilla_preparada = template.render(diccionario_de_datos)
+    # template = loader.get_template('mi_plantilla.html')
+    # plantilla_preparada = template.render(diccionario_de_datos)
+    # return HttpResponse(plantilla_preparada)
     
+    # version con render 
+    return render(request, 'indice/mi_plantilla.html', diccionario_de_datos)
     
-    return HttpResponse(plantilla_preparada)
