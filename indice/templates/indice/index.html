@@ -6,6 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
+        {% block bloque_head %}
+        {% endblock bloque_head %}
         <title>Landing Page - Start Bootstrap Theme</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
@@ -20,11 +22,14 @@
         <!-- Navigation-->
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
-                <a class="navbar-brand" href="#!">Start Bootstrap</a>
-                <a class="btn btn-primary" href="#signup">Sign Up</a>
+                <a class="navbar-brand" href={% url 'inicio' %}>Inicio</a>
+                <a class="navbar-brand" href={% url 'mi_plantilla' %}>Mi plantilla</a>
+                <a class="navbar-brand" href={% url 'otra_vista' %}>Otra vista</a>
+                {% comment %} <a class="btn btn-primary" href="#signup">Sign Up</a> {% endcomment %}
             </div>
         </nav>
         <!-- Masthead-->
+        {% block header_index %}
         <header class="masthead">
             <div class="container position-relative">
                 <div class="row justify-content-center">
@@ -45,7 +50,15 @@
                 </div>
             </div>
         </header>
-        <!-- Icons Grid-->
+        {% endblock header_index %}
+        
+        {% block pruebaTemplate %}
+            <p>ESTAMOS TODOS JUGADOS!</p>
+        {% endblock pruebaTemplate %}
+
+        {% block otro_bloque %}
+        {% endblock otro_bloque %}
+
         <!-- Footer-->
         <footer class="footer bg-light">
             <div class="container">
