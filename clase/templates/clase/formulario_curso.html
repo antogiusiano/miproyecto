@@ -1,0 +1,21 @@
+{% extends 'indice/index.html' %}
+
+{% block header_index %}
+{% endblock header_index %}
+
+
+{% block pruebaTemplate  %}
+    <form action={% url 'formulario_curso' %} method="post">
+
+        {% csrf_token %}
+        {% comment %} Curso: <input type="text" name="curso" >
+        Camada: <input type="number" name="camada"> {% endcomment %}
+        <table>
+        {{formulario.as_table}}
+        </table>
+
+        <input type="submit" placeholder="Enviar">
+    </form>
+
+{% endblock pruebaTemplate %}
+
