@@ -28,6 +28,9 @@
                 <a class="navbar-brand" href={% url 'busqueda_curso' %}>Buscar Curso</a>
                 <a class="navbar-brand" href={% url 'listado_estudiantes' %}>Estudiantes</a>
                 <a class="navbar-brand" href={% url 'profesor_listado' %}>Profesores</a>
+                <a class="navbar-brand" href={% url 'login' %}>Login</a>
+                <a class="navbar-brand" href={% url 'logout' %}>Logout</a>
+                <a class="navbar-brand" href={% url 'registrar' %}>Registrar</a>
                 {% comment %} <a class="btn btn-primary" href="#signup">Sign Up</a> {% endcomment %}
             </div>
         </nav>
@@ -39,7 +42,13 @@
                     <div class="col-xl-6">
                         <div class="text-center text-white">
                             <!-- Page heading-->
-                            <h1 class="mb-5">Bienvenidos!</h1>
+                            <h1 class="mb-5">
+                                {% if msj %}
+                                    {{msj}}
+                                {% else %}
+                                    Bienvenidos!
+                                {% endif %}
+                            </h1>
                             <!-- Signup form-->
                             <!-- * * * * * * * * * * * * * * *-->
                             <!-- * * SB Forms Contact Form * *-->

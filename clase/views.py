@@ -5,6 +5,8 @@ from clase.forms import CursoFormulario, BusquedaCurso, EstudianteFormulario
 import random
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import UpdateView, DeleteView, CreateView
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 
@@ -64,6 +66,7 @@ def listado_estudiantes(request):
         {'listado_estudiantes': listado_estudiantes}
     )
 
+@login_required
 def crear_estudiante(request):
     if request.method == 'POST':
             formulario = EstudianteFormulario(request.POST)
@@ -109,7 +112,8 @@ def borrar_estudiante(request, id):
 
 # CRUD con CBV
 
-class ProfesorLista(ListView):
+# LoginRequiredMixin Es para limitar
+class ProfesorLista(LoginRequiredMixin,ListView):
     model = Profesor
     template_name= 'clase/profesor_list.html'
 
